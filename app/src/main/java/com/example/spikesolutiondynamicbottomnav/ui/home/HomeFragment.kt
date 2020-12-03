@@ -40,7 +40,7 @@ class HomeFragment : BaseFragment() {
         button.setOnClickListener {
             findNavController().navigate(
                 MainActivity.Nav.Dest.homeTwo, bundleOf(
-
+                    ARG_REFERENCE_ID to editText.text.toString()
                 )
             )
         }
