@@ -20,10 +20,13 @@ class MainActivity : AppCompatActivity() {
     private val TAG = "MainActivity"
 
     object Nav {
+        const val id = 1
         object Dest {
             const val home = 2
             const val dashboard = 3
-            const val notification = 3
+            const val notification = 4
+            const val homeTwo = 5
+            const val homeThree = 6
         }
     }
 
@@ -33,7 +36,7 @@ class MainActivity : AppCompatActivity() {
                     "homepage"
             ),
             Pair(
-                    "5f6370dd29fbc8001afcda0e",
+                    "Dirette",
                     "livelist"
             ),
             Pair(
@@ -45,7 +48,7 @@ class MainActivity : AppCompatActivity() {
                     "homepage"
             ),
             Pair(
-                    "5f7b2527a0e8450019448c3a",
+                    "User",
                     "userlist"
             ),
     )
