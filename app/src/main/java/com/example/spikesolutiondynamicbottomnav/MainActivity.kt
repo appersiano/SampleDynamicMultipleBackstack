@@ -75,7 +75,7 @@ class MainActivity : AppCompatActivity() {
             val navController = NavController(applicationContext)
             navController.apply {
                 navigatorProvider.addNavigator(FragmentNavigator(applicationContext, supportFragmentManager, R.id.nav_host_fragment))
-                graph = createGraph(menu.first.toDestinationId(), getHomeDestination(menu.second)) {
+                graph = createGraph(menu.first.toDestinationId(), menu.second.toStartDestinationId()) {
                     fragment<HomeFragment>(Nav.Dest.home) {
                         argument(BaseFragment.ARG_REFERENCE_ID) {
                             defaultValue = "homeId"
@@ -102,7 +102,7 @@ class MainActivity : AppCompatActivity() {
                             type = NavType.StringType
                         }
                         argument(BaseFragment.ARG_REFERENCE_TYPE) {
-                            defaultValue = "notifications"
+                            defaultValue = "notification"
                             type = NavType.StringType
                         }
                     }
@@ -134,15 +134,16 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun getHomeDestination(second: String): Int {
-        return when (second) {
+    private fun String.toStartDestinationId(): Int {
+        return when (this) {
             "homepage" -> Nav.Dest.home
-            "livelist" -> Nav.Dest.dashboard
+            "dashboard" -> Nav.Dest.dashboard
+            "notification" -> Nav.Dest.notification
             else -> Nav.Dest.home
         }
     }
 
-    fun String.toDestinationId(): Int {
+    private fun String.toDestinationId(): Int {
         return this.take(3).toCharArray().map { it.toInt().toString() }.reduce { finalString, element -> finalString + element }.toInt()
     }
 }
