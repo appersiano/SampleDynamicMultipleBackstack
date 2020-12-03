@@ -4,20 +4,22 @@ import android.os.Bundle
 import android.view.Menu
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
+import androidx.navigation.NavType
 import androidx.navigation.createGraph
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.FragmentNavigator
 import androidx.navigation.fragment.fragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
+import com.example.spikesolutiondynamicbottomnav.ui.BaseFragment
 import com.example.spikesolutiondynamicbottomnav.ui.dashboard.DashboardFragment
 import com.example.spikesolutiondynamicbottomnav.ui.home.HomeFragment
+import com.example.spikesolutiondynamicbottomnav.ui.home.HomeFragmentThree
+import com.example.spikesolutiondynamicbottomnav.ui.home.HomeFragmentTwo
 import com.example.spikesolutiondynamicbottomnav.ui.notifications.NotificationsFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
-
-    private val TAG = "MainActivity"
 
     object Nav {
         const val id = 1
@@ -75,13 +77,40 @@ class MainActivity : AppCompatActivity() {
                 navigatorProvider.addNavigator(FragmentNavigator(applicationContext, supportFragmentManager, R.id.nav_host_fragment))
                 graph = createGraph(menu.first.toDestinationId(), getHomeDestination(menu.second)) {
                     fragment<HomeFragment>(Nav.Dest.home) {
-                        label = getString(R.string.title_home)
+                        argument(BaseFragment.ARG_REFERENCE_ID) {
+                            defaultValue = "homeId"
+                            type = NavType.StringType
+                        }
+                        argument(BaseFragment.ARG_REFERENCE_TYPE) {
+                            defaultValue = "homepage"
+                            type = NavType.StringType
+                        }
                     }
                     fragment<DashboardFragment>(Nav.Dest.dashboard) {
-                        label = getString(R.string.title_home)
+                        argument(BaseFragment.ARG_REFERENCE_ID) {
+                            defaultValue = "dashId"
+                            type = NavType.StringType
+                        }
+                        argument(BaseFragment.ARG_REFERENCE_TYPE) {
+                            defaultValue = "dashboard"
+                            type = NavType.StringType
+                        }
                     }
                     fragment<NotificationsFragment>(Nav.Dest.notification) {
-                        label = getString(R.string.title_home)
+                        argument(BaseFragment.ARG_REFERENCE_ID) {
+                            defaultValue = "notificationsId"
+                            type = NavType.StringType
+                        }
+                        argument(BaseFragment.ARG_REFERENCE_TYPE) {
+                            defaultValue = "notifications"
+                            type = NavType.StringType
+                        }
+                    }
+                    fragment<HomeFragmentTwo>(Nav.Dest.homeTwo) {
+
+                    }
+                    fragment<HomeFragmentThree>(Nav.Dest.homeThree) {
+
                     }
                 }
             }
