@@ -28,15 +28,14 @@ class HomeFragmentThree : BaseFragment() {
             ViewModelProvider(this).get(HomeViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_home, container, false)
         val textView: TextView = root.findViewById(R.id.text_home)
-        homeViewModel.text.observe(viewLifecycleOwner, Observer {
-            textView.text = it
-        })
+        textView.text = this::class.java.simpleName
+
 
         val editText: EditText = root.findViewById(R.id.editTextTextArg)
         val button: Button = root.findViewById(R.id.button)
         button.setOnClickListener {
             findNavController().navigate(
-                MainActivity.Nav.Dest.home, bundleOf(
+                MainActivity.Nav.Dest.homeTwo, bundleOf(
 
                 )
             )
