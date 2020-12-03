@@ -32,10 +32,13 @@ class HomeFragmentTwo : BaseFragment() {
         textView.text = this::class.java.simpleName
 
         val editText: EditText = root.findViewById(R.id.editTextTextArg)
+        referenceId?.let {
+            editText.setText(it)
+        }
         val button: Button = root.findViewById(R.id.button)
         button.setOnClickListener {
             findNavController().navigate(
-                MainActivity.Nav.Dest.homeTwo, bundleOf(
+                MainActivity.Nav.Dest.homeThree, bundleOf(
 
                 )
             )

@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import android.widget.Toast
 import androidx.core.os.bundleOf
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -32,13 +33,12 @@ class HomeFragmentThree : BaseFragment() {
 
 
         val editText: EditText = root.findViewById(R.id.editTextTextArg)
+        referenceId?.let {
+            editText.setText(it)
+        }
         val button: Button = root.findViewById(R.id.button)
         button.setOnClickListener {
-            findNavController().navigate(
-                MainActivity.Nav.Dest.homeTwo, bundleOf(
-
-                )
-            )
+            Toast.makeText(context, "Not implemented yet...", Toast.LENGTH_SHORT).show()
         }
 
         return root

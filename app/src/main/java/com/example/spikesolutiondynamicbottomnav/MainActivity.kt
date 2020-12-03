@@ -11,6 +11,7 @@ import androidx.navigation.fragment.FragmentNavigator
 import androidx.navigation.fragment.fragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
+import androidx.navigation.ui.setupWithNavController
 import com.example.spikesolutiondynamicbottomnav.ui.BaseFragment
 import com.example.spikesolutiondynamicbottomnav.ui.dashboard.DashboardFragment
 import com.example.spikesolutiondynamicbottomnav.ui.home.HomeFragment
@@ -124,12 +125,11 @@ class MainActivity : AppCompatActivity() {
         val appBarConfiguration = AppBarConfiguration(setOf(
                 R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications))
         setupActionBarWithNavController(navController, appBarConfiguration)
-        //navView.setupWithNavController(navController)
 
         bottomNavigationView.setOnNavigationItemSelectedListener {
             val i = it.order
-            currentNavController = listNavController[i]
-            currentNavController.navigate(currentNavController.graph.startDestination)
+            bottomNavigationView.setupWithNavController(listNavController[i])
+            //navController.navigate(navController.graph.startDestination)
             true
         }
     }
