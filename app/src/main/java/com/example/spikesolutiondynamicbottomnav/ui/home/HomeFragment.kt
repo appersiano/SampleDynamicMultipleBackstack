@@ -8,13 +8,11 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import androidx.core.os.bundleOf
-import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
-import com.example.spikesolutiondynamicbottomnav.MainActivity
 import com.example.spikesolutiondynamicbottomnav.R
 import com.example.spikesolutiondynamicbottomnav.ui.BaseFragment
+import com.example.spikesolutiondynamicbottomnav.ui.navigation.nav_graph
 
 class HomeFragment : BaseFragment() {
 
@@ -39,7 +37,7 @@ class HomeFragment : BaseFragment() {
         val button: Button = root.findViewById(R.id.button)
         button.setOnClickListener {
             findNavController().navigate(
-                MainActivity.Nav.Dest.homeTwo, bundleOf(
+                nav_graph.dest.homeTwo, bundleOf(
                     ARG_REFERENCE_ID to editText.text.toString()
                 )
             )

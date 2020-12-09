@@ -29,6 +29,7 @@ class HomeFragmentThree : BaseFragment() {
             ViewModelProvider(this).get(HomeViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_home, container, false)
         val textView: TextView = root.findViewById(R.id.text_home)
+        root.setBackgroundResource(R.color.purple_200)
         textView.text = this::class.java.simpleName
 
 

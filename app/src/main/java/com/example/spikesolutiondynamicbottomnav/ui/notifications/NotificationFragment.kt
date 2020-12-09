@@ -11,7 +11,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.spikesolutiondynamicbottomnav.R
 import com.example.spikesolutiondynamicbottomnav.ui.BaseFragment
 
-class NotificationsFragment : BaseFragment() {
+class NotificationFragment : BaseFragment() {
 
     private lateinit var notificationsViewModel: NotificationsViewModel
 

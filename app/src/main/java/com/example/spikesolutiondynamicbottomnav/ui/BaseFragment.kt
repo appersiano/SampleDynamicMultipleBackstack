@@ -1,6 +1,10 @@
 package com.example.spikesolutiondynamicbottomnav.ui
 
+import android.util.Log
+import androidx.activity.OnBackPressedCallback
+import androidx.activity.addCallback
 import androidx.fragment.app.Fragment
+
 
 abstract class BaseFragment : Fragment() {
     companion object {
@@ -15,5 +19,18 @@ abstract class BaseFragment : Fragment() {
     val referenceType by lazy {
         arguments?.getString(ARG_REFERENCE_TYPE)
     }
+
+//    override fun onDestroyView() {
+//        super.onDestroyView()
+//        val callback = object : OnBackPressedCallback(true) {
+//            override fun handleOnBackPressed() {
+//                Log.d(
+//                    "DEBUG",
+//                    "onBackPressed() call"
+//                )
+//            }
+//        }
+//        requireActivity().onBackPressedDispatcher.addCallback(this, callback)
+//    }
 
 }
